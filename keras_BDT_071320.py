@@ -45,11 +45,11 @@ fVBFDataPt1 = rootnp.tree2array(fVBFTree, branches = 'l1Pt_1')
 fVBFDataPt2 = rootnp.tree2array(fVBFTree, branches = 'l1Pt_2')
 
 
-fVBFDataDeltaEta = fVBFDataDeltaEta.reshape(len(fVBFDataDeltaEta), 1)
-fVBFDataDeltaPhi = fVBFDataDeltaPhi.reshape(len(fVBFDataDeltaPhi), 1)
-fVBFDataMass = fVBFDataMass.reshape(len(fVBFDataMass), 1)
-fVBFDataPt1 = fVBFDataPt1.reshape(len(fVBFDataPt1), 1)
-fVBFDataPt2 = fVBFDataPt2.reshape(len(fVBFDataPt2), 1)
+VBFDeltaEta = fVBFDataDeltaEta.reshape(len(fVBFDataDeltaEta), 1)
+VBFDeltaPhi = fVBFDataDeltaPhi.reshape(len(fVBFDataDeltaPhi), 1)
+VBFMass = fVBFDataMass.reshape(len(fVBFDataMass), 1)
+VBFPt1 = fVBFDataPt1.reshape(len(fVBFDataPt1), 1)
+VBFPt2 = fVBFDataPt2.reshape(len(fVBFDataPt2), 1)
 
 
 
@@ -59,60 +59,24 @@ fZBDataMass = rootnp.tree2array(fZBTree, branches = 'l1Mass')
 fZBDataPt1 = rootnp.tree2array(fZBTree, branches = 'l1Pt_1')
 fZBDataPt2 = rootnp.tree2array(fZBTree, branches = 'l1Pt_2')
 
-fZBDataDeltaEta = fZBDataDeltaEta.reshape(len(fZBDataDeltaEta), 1)
-fZBDataDeltaPhi = fZBDataDeltaPhi.reshape(len(fZBDataDeltaPhi), 1)
-fZBDataMass = fZBDataMass.reshape(len(fZBDataMass), 1)
-fZBDataPt1 = fZBDataPt1.reshape(len(fZBDataPt1), 1)
-fZBDataPt2 = fZBDataPt2.reshape(len(fZBDataPt2), 1)
+ZBDeltaEta = fZBDataDeltaEta.reshape(len(fZBDataDeltaEta), 1)
+ZBDeltaPhi = fZBDataDeltaPhi.reshape(len(fZBDataDeltaPhi), 1)
+ZBMass = fZBDataMass.reshape(len(fZBDataMass), 1)
+ZBPt1 = fZBDataPt1.reshape(len(fZBDataPt1), 1)
+ZBPt2 = fZBDataPt2.reshape(len(fZBDataPt2), 1)
 
 
+#Applying cut 
 
-
-np.savetxt('VBFDeltaEta.csv', fVBFDataDeltaEta, delimiter = ' ')
-np.savetxt('VBFDeltaPhi.csv', fVBFDataDeltaPhi, delimiter = ' ')
-np.savetxt('VBFPt1.csv', fVBFDataPt1, delimiter = ' ')
-np.savetxt('VBFPt2.csv', fVBFDataPt2, delimiter = ' ')
-np.savetxt('VBFMass.csv', fVBFDataMass, delimiter = ' ')
-
-np.savetxt('ZBDeltaEta.csv', fZBDataDeltaEta, delimiter = ' ')
-np.savetxt('ZBDeltaPhi.csv', fZBDataDeltaPhi, delimiter = ' ')
-np.savetxt('ZBPt1.csv', fZBDataPt1, delimiter = ' ')
-np.savetxt('ZBPt2.csv', fZBDataPt2, delimiter = ' ')
-np.savetxt('ZBMass.csv', fZBDataMass, delimiter = ' ')
-
-
-
-
-#Importing data and applying cut 
-
-VBFDeltaEta = np.loadtxt('VBFDeltaEta.csv', delimiter = ' ')
 VBFDeltaEta = VBFDeltaEta[(VBFDeltaEta >= -6)]
-
-ZBDeltaEta = np.loadtxt('ZBDeltaEta.csv', delimiter = ' ')
 ZBDeltaEta = ZBDeltaEta[(ZBDeltaEta >= -6)]
-
-VBFDeltaPhi = np.loadtxt('VBFDeltaPhi.csv', delimiter = ' ')
 VBFDeltaPhi = VBFDeltaPhi[(VBFDeltaPhi >= -6)]
-
-ZBDeltaPhi = np.loadtxt('ZBDeltaPhi.csv', delimiter = ' ')
 ZBDeltaPhi = ZBDeltaPhi[(ZBDeltaPhi >= -6)]
-
-VBFPt1 = np.loadtxt('VBFPt1.csv', delimiter = ' ')
 VBFPt1 = VBFPt1[(VBFPt1 >= 0)]
-
-ZBPt1 = np.loadtxt('ZBPt1.csv', delimiter = ' ')
 ZBPt1 = ZBPt1[(ZBPt1 >= 0)]
-
-VBFPt2 = np.loadtxt('VBFPt2.csv', delimiter = ' ')
 VBFPt2 = VBFPt2[(VBFPt2 >= -6)]
-
-ZBPt2 = np.loadtxt('ZBPt2.csv', delimiter = ' ')
 ZBPt2 = ZBPt2[(ZBPt2 >= -6)]
-
-VBFMass = np.loadtxt('VBFMass.csv', delimiter = ' ')
 VBFMass = VBFMass[(VBFMass >= -6)]
-    
-ZBMass = np.loadtxt('ZBMass.csv', delimiter = ' ')
 ZBMass = ZBMass[(ZBMass >= -6)]
 
 
